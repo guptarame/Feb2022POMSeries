@@ -16,14 +16,21 @@ pipeline {
         }
         stage('Unit Test') {
             steps {
-                echo 'mvn test'
+                echo 'mvn -Dtest=ProductInfoTest#productDescriptionTest test'
             }
         }
-        stage('Integration Test Hello') {
+        stage('Regression Test') {
             steps {
-                echo 'Integration Test World'
+                echo 'mvn -Dtest=AccountsPageTest test'
             }
         }
+
+        stage('Integration Test') {
+                    steps {
+                        echo 'mvn test'
+                    }
+                }
+
         stage('Result') {
             steps {
                 junit '**/*.xml'

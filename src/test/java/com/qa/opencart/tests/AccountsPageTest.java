@@ -60,14 +60,14 @@ public class AccountsPageTest extends BaseTest {
 	}
 	
 	
-	@Test(dataProvider = "getProductName")
-	public void searchTest(String productName) {
-		commPage = new CommonsPage(driver);
-		searchResultsPage = commPage.doSearch(productName);
-		String resultsPageHeader = searchResultsPage.getResultsPageHeader();
-		Assert.assertTrue(resultsPageHeader.contains(productName));
-	}
-	
+//	@Test(dataProvider = "getProductName")
+//	public void searchTest(String productName) {
+//		commPage = new CommonsPage(driver);
+//		searchResultsPage = commPage.doSearch(productName);
+//		String resultsPageHeader = searchResultsPage.getResultsPageHeader();
+//		Assert.assertTrue(resultsPageHeader.contains(productName));
+//	}
+
 	@DataProvider
 	public Object[][] getProductData() {
 //		return new Object[][] {
@@ -75,10 +75,10 @@ public class AccountsPageTest extends BaseTest {
 //			{"Macbook", "MacBook Air"},
 //			{"Samsung", "Samsung SyncMaster 941BW"}
 //		};
-		
+
 		return ExcelUtil.getTestData("product");
 	}
-	
+
 	@Test(dataProvider = "getProductData")
 	public void productInfoTest(String productName, String mainProductName) {
 		commPage = new CommonsPage(driver);
@@ -88,6 +88,6 @@ public class AccountsPageTest extends BaseTest {
 		System.out.println(mainProductNameValue);
 		Assert.assertEquals(mainProductNameValue, mainProductName);
 	}
-	
+
 
 }

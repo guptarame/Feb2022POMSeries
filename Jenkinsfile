@@ -4,6 +4,10 @@ pipeline {
         maven "MAVEN_HOME"
     }
     stages {
+
+
+    stage('Build and Compile') {
+          parallel {
         stage('Build') {
             steps {
                 git credentialsId: '5b9319da-8c4f-4392-8560-98d63bbc8bfc', url: 'https://github.com/guptarame/Feb2022POMSeries.git'
@@ -14,6 +18,10 @@ pipeline {
                 sh 'mvn compile'
             }
         }
+
+        }
+        }
+
         stage('Unit Test') {
             steps {
                 echo 'mvn -Dtest=ProductInfoTest#productDescriptionTest test'

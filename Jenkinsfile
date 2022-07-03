@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Unit Test') {
             steps {
-                sh 'mvn -Dtest=AccountsPageTest test'
+                echo 'unit test'
             }
         }
         stage('Integration Test Hello') {

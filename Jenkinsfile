@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+ tools {
+        maven "MAVEN_HOME"
+    }
     stages {
         stage('Build') {
             steps {
@@ -14,7 +16,7 @@ pipeline {
         }
         stage('Unit Test') {
             steps {
-                echo 'unit test'
+                echo 'mvn test'
             }
         }
         stage('Integration Test Hello') {

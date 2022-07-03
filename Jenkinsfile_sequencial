@@ -16,23 +16,24 @@ pipeline {
         }
         stage('Unit Test') {
             steps {
-                echo 'mvn -Dtest=ProductInfoTest#productDescriptionTest test'
+                sh 'mvn -Dtest=ProductInfoTest#productDescriptionTest test'
             }
         }
         stage('Regression Test') {
             steps {
-                echo 'mvn -Dtest=AccountsPageTest test'
+                sh 'mvn -Dtest=AccountsPageTest test'
             }
         }
 
         stage('Integration Test') {
                     steps {
-                        echo 'mvn test'
+                        sh 'mvn test'
                     }
                 }
 
         stage('Result') {
             steps {
+                echo 'Deplay the Result'
                 junit '**/*.xml'
             }
         }

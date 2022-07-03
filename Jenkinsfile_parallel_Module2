@@ -4,7 +4,7 @@ pipeline {
         maven "MAVEN_HOME"
         }
     stages {
-        stage('Build and Compile') {
+        stage('Smoke Test') {
               parallel {
                     stage('Build') {
                         steps {
@@ -18,7 +18,7 @@ pipeline {
                         }
               }
         }
-        stage('Unit and Integration Test') {
+        stage('Node1') {
               parallel {
                     stage('Unit Test') {
                         steps {

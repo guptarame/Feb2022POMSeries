@@ -37,14 +37,7 @@ pipeline {
             }
         }
 
-         stage('package') {
-            steps {
-                sh 'mvn package'
-            }
-        }
-
-
-         stage('Deploy War File ') {
+        stage('Deploy War File ') {
             steps {
                 echo 'Deploy war file World'
             }

@@ -31,8 +31,8 @@ pipeline
    steps {
     withSonarQubeEnv(credentialsId: 'sonartoken22augustidpom', installationName: 'sonarqubeserver22august') {
          bat '''$SCANNER_HOME/bin/sonar-scanner \
-         -Dsonar.projectKey=my-java-maven-sonar \
-         -Dsonar.projectName=Time Tracker Project With Java Maven \
+         -Dsonar.projectKey=Feb2022POMSeries \
+         -Dsonar.projectName=Feb2022POMSeries \
          -Dsonar.sources=src/ \
          -Dsonar.java.binaries=target/classes/ \
          -Dsonar.exclusions=src/test/java/****/*.java \

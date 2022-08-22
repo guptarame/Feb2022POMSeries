@@ -25,9 +25,9 @@ pipeline
 
 
  stage('SonarQube analysis') {
-    environment {
-      SCANNER_HOME = tool 'SonarQubeScanner'
-    }
+  //  environment {
+   def SCANNER_HOME = tool 'SonarQubeScanner'
+ //   }
    steps {
     withSonarQubeEnv(credentialsId: 'sonartoken22augustidpom', installationName: 'sonarqubeserver22august') {
          bat '''$SCANNER_HOME/bin/sonar-scanner \

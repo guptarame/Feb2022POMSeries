@@ -10,7 +10,8 @@ pipeline
             {
                 stage('build') {
                                 steps {
-                                            git branch: 'myself', credentialsId: 'gitcredentials', url: 'https://github.com/guptarame/time-tracker.git'
+                                       // git branch: 'myself', credentialsId: 'gitcredentials', url: 'https://github.com/guptarame/time-tracker.git'
+                                       git credentialsId: 'gitcredentials22augustid', url: 'https://github.com/guptarame/Feb2022POMSeries.git'
                                        }
                                 }
                  stage('sonarqube Analysis')

@@ -24,12 +24,11 @@ pipeline
                //   }
 
 
-// stage('SonarQube analysis') {
- //   environment {
- //     SCANNER_HOME = tool 'SonarQubeScanner'
- //   }
- //   steps {
-
+ stage('SonarQube analysis') {
+    environment {
+      SCANNER_HOME = tool 'SonarQubeScanner'
+    }
+   steps {
     withSonarQubeEnv(credentialsId: 'gitcredentials', installationName: 'sonarqubeserver22august') {
          bat '''$SCANNER_HOME/bin/sonar-scanner \
          -Dsonar.projectKey=my-java-maven-sonar \

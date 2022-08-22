@@ -25,10 +25,10 @@ pipeline
 
 
  stage('SonarQube analysis') {
-  //  environment {
-   def SCANNER_HOME = tool 'SonarQubeScanner';
- //   }
- //  steps {
+    environment {
+    SCANNER_HOME = tool 'SonarQubeScanner';
+    }
+   steps {
     withSonarQubeEnv(credentialsId: 'sonartoken22augustidpom', installationName: 'sonarqubeserver22august') {
          bat '''$SCANNER_HOME/bin/sonar-scanner \
          -Dsonar.projectKey=Feb2022POMSeries \
@@ -39,7 +39,7 @@ pipeline
          -Dsonar.java.libraries=/var/lib/jenkins/.m2/**/*.jar \
          -Dsonar.projectVersion=${BUILD_NUMBER}-${GIT_COMMIT_SHORT}'''
        }
-   //  }
+     }
 }
 
 

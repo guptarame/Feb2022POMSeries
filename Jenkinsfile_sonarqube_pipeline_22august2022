@@ -30,33 +30,33 @@ pipeline
  //   }
  //   steps {
 
-  //  withSonarQubeEnv(credentialsId: 'id20', installationName: 'sonarqubeserver22august') {
-   //      bat '''$SCANNER_HOME/bin/sonar-scanner \
-    //     -Dsonar.projectKey=my-java-maven-sonar \
-     //    -Dsonar.projectName=Time Tracker Project With Java Maven \
-      //   -Dsonar.sources=src/ \
-       //  -Dsonar.java.binaries=target/classes/ \
-       //  -Dsonar.exclusions=src/test/java/****/*.java \
-       //  -Dsonar.java.libraries=/var/lib/jenkins/.m2/**/*.jar \
-      //   -Dsonar.projectVersion=${BUILD_NUMBER}-${GIT_COMMIT_SHORT}'''
-     //  }
-    // }
-//}
+    withSonarQubeEnv(credentialsId: 'gitcredentials', installationName: 'sonarqubeserver22august') {
+         bat '''$SCANNER_HOME/bin/sonar-scanner \
+         -Dsonar.projectKey=my-java-maven-sonar \
+         -Dsonar.projectName=Time Tracker Project With Java Maven \
+         -Dsonar.sources=src/ \
+         -Dsonar.java.binaries=target/classes/ \
+         -Dsonar.exclusions=src/test/java/****/*.java \
+         -Dsonar.java.libraries=/var/lib/jenkins/.m2/**/*.jar \
+         -Dsonar.projectVersion=${BUILD_NUMBER}-${GIT_COMMIT_SHORT}'''
+       }
+     }
+}
 
 
 
 
- stage('SonarQube analysis') {
-    def scannerHome = tool 'SonarQubeScanner';
-    withSonarQubeEnv('sonarqubeserver22august') {
-      bat "${scannerHome}/bin/sonar-scanner \
-      -D sonar.login=admin \
-      -D sonar.password=admin123 \
-      -D sonar.projectKey=Feb2022POMSeries \
-      -D sonar.exclusions=vendor/**,resources/**,**/*.java \
-     -D sonar.host.url=http://192.168.29.15:9000/"
-   }
-  }
+ //stage('SonarQube analysis') {
+ //   def scannerHome = tool 'SonarQubeScanner';
+ //   withSonarQubeEnv('sonarqubeserver22august') {
+ //     bat "${scannerHome}/bin/sonar-scanner \
+  //    -D sonar.login=admin \
+   //   -D sonar.password=admin123 \
+    //  -D sonar.projectKey=Feb2022POMSeries \
+    //  -D sonar.exclusions=vendor/**,resources/**,**/*.java \
+    // -D sonar.host.url=http://192.168.29.15:9000/"
+  // }
+ // }
 
 
 
